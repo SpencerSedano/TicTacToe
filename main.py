@@ -12,8 +12,17 @@ first_line = pygame.draw.line(second_surface, (0,0,0), [0,133.3], [400,133.3])
 second_line = pygame.draw.line(second_surface, (0,0,0), [0,266.6], [400,266.6])
 third_line = pygame.draw.line(second_surface, (0,0,0), [133.3,0], [133.3, 400])
 fourth_line = pygame.draw.line(second_surface, (0,0,0), [266.6,0], [266.6, 400])
+
+
 while True:
+    pos = pygame.mouse.get_pos()
     for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print("Clicked")
+            print(pos)
+            circle = pygame.draw.circle(second_surface, (50,205,50), pos, (50))
+        if event.type == pygame.MOUSEBUTTONUP:
+            print("Released")
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
